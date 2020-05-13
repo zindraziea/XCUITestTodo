@@ -48,6 +48,10 @@ class ViewController: UIViewController {
     imageView.image = UIImage(named: todo.image)
     titleLabel.text = todo.title
     dateLabel.text = stringFromDate(todo.date)
+    
+    imageView.accessibilityIdentifier = todo.image
+    titleLabel.accessibilityIdentifier = "titleLabel"
+    dateLabel.accessibilityIdentifier = "dateLabel"
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
