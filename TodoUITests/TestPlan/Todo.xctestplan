@@ -1,0 +1,34 @@
+{
+  "configurations" : [
+    {
+      "id" : "2B95EAF8-8E95-4264-A18D-B2D78E4F670D",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:Todo.xcodeproj",
+      "identifier" : "19515F891C8558F800DC2284",
+      "name" : "Todo"
+    }
+  },
+  "testTargets" : [
+    {
+      "selectedTests" : [
+        "TodoTestSuite\/test_TODO_101_1()",
+        "TodoTestSuite\/test_TODO_102()",
+        "TodoTestSuite\/test_TODO_103()"
+      ],
+      "target" : {
+        "containerPath" : "container:Todo.xcodeproj",
+        "identifier" : "3866CCAA252EEE9700250640",
+        "name" : "TodoUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

@@ -1,0 +1,27 @@
+{
+  "configurations" : [
+    {
+      "id" : "15A4213F-5DC7-4FB9-BA51-629267120F57",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "selectedTests" : [
+        "TodoTestSuite\/test_TODO_104()"
+      ],
+      "target" : {
+        "containerPath" : "container:Todo.xcodeproj",
+        "identifier" : "3866CCAA252EEE9700250640",
+        "name" : "TodoUITests"
+      }
+    }
+  ],
+  "version" : 1
+}
