@@ -8,9 +8,10 @@
 
 import XCTest
 
-class TodoListScreen: XCTestCase {
+class TodoListScreen: CommonFunction {
     private lazy var app = XCUIApplication()
     private lazy var btnAddNewTodo: XCUIElement = app.buttons["+"]
+    private lazy var btnEdit: XCUIElement = app.buttons["Edit"]
     
     func iClickButtonAddNewTodo() {
         XCTContext.runActivity(named: "Click button add new to do") { _ in
@@ -38,6 +39,26 @@ class TodoListScreen: XCTestCase {
             XCTAssertEqual(targetCell.staticTexts["titleLabel"].label, todoModel.title)
             XCTAssertEqual(targetCell.staticTexts["dateLabel"].label, todoModel.expectedDate)
             targetCell.tap()
+        }
+    }
+    
+    func iClickEdit() {
+        XCTContext.runActivity(named: "Click button edit") { _ in
+            btnEdit.tap()
+        }
+    }
+    
+    func iDeleteTodoByType(type: TodoType) {
+        XCTContext.runActivity(named: "Delete to do by type") { _ in
+            let targetType: String = type.rawValue.replacingOccurrences(of: " ", with: "-")
+            let queryCell: XCUIElementQuery = app.tables.cells.containing(NSPredicate(format: "identifier CONTAINS '\(targetType)'"))
+            let cellCount: Int = queryCell.count
+            if cellCount > 0 {
+                for _ in 1...cellCount {
+                    queryCell.firstMatch.buttons.matching(NSPredicate(format: "label CONTAINS 'Delete'")).firstMatch.tap()
+                    queryCell.firstMatch.buttons["Delete"].tap()
+                }
+            }
         }
     }
     

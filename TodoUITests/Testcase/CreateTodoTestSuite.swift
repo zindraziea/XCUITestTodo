@@ -8,9 +8,18 @@
 
 import XCTest
 
-class CreateTodoTestSuite: XCTestCase {
+class CreateTodoTestSuite: CommonFunction {
     private lazy var app = XCUIApplication()
     private lazy var addEditTodoFeature = AddEditTodoFeature()
+    private lazy var deleteTodoFeature = DeleteTodoFeature()
+    
+    private lazy var type: TodoType = TodoType.child
+    private lazy var title: String = "test_TODO_101 Child"
+    private lazy var month: MonthOfYear = MonthOfYear.October
+    private lazy var date: String = "11"
+    private lazy var year: String = "2021"
+    private lazy var expectedDate: String = "2021-10-11"
+    private lazy var todoModel = TodoModel(type: type, title: title, month: month, date: date, year: year, expectedDate: expectedDate)
     
     override func setUp() {
         continueAfterFailure = false
@@ -21,16 +30,9 @@ class CreateTodoTestSuite: XCTestCase {
         print(app.debugDescription)
     }
     
-    func test_TODO_101_1() {
+    func test_TODO_101() {
         XCTContext.runActivity(named: "Create new Todo-List: Child") { _ in
-            let type: TodoType = TodoType.child
-            let title: String = "test_TODO_101 Child"
-            let month: MonthOfYear = MonthOfYear.October
-            let date: String = "11"
-            let year: String = "2021"
-            let expectedDate: String = "2021-10-11"
-            let todoModel = TodoModel(type: type, title: title, month: month, date: date, year: year, expectedDate: expectedDate)
-            
+
             addEditTodoFeature.iGotoNewTodoScreen()
             addEditTodoFeature.iInputNewTodo(todoModel: todoModel)
             addEditTodoFeature.iVerifyLastTodoList(todoModel: todoModel)
@@ -38,52 +40,68 @@ class CreateTodoTestSuite: XCTestCase {
         }
     }
     
-    func test_TODO_101_2() {
-        XCTContext.runActivity(named: "Create new Todo-List: phone") { _ in
-            let type: TodoType = TodoType.phone
-            let title: String = "test_TODO_101 Phone"
-            let month: MonthOfYear = MonthOfYear.January
-            let date: String = "11"
-            let year: String = "2021"
-            let expectedDate: String = "2021-01-11"
-            let todoModel = TodoModel(type: type, title: title, month: month, date: date, year: year, expectedDate: expectedDate)
-            
+    func test_TODO_102() {
+        XCTContext.runActivity(named: "Edit description on new Todo-List") { _ in
             addEditTodoFeature.iGotoNewTodoScreen()
             addEditTodoFeature.iInputNewTodo(todoModel: todoModel)
             addEditTodoFeature.iVerifyLastTodoList(todoModel: todoModel)
+            addEditTodoFeature.iVerifyTodoDetail(todoModel: todoModel)
+            
+            type = TodoType.phone
+            title = "test_TODO_102 Phone"
+            month = MonthOfYear.December
+            date = "12"
+            year = "2022"
+            expectedDate = "2022-12-12"
+            todoModel = TodoModel(type: type, title: title, month: month, date: date, year: year, expectedDate: expectedDate)
+            addEditTodoFeature.iInputNewTodo(todoModel: todoModel)
+            addEditTodoFeature.iVerifyLastTodoList(todoModel: todoModel)
+            addEditTodoFeature.iVerifyTodoDetail(todoModel: todoModel)
         }
     }
     
-    func test_TODO_101_3() {
-        XCTContext.runActivity(named: "Create new Todo-List: shopping cart") { _ in
-            let type: TodoType = TodoType.shopping_cart
-            let title: String = "test_TODO_101 Shopping Cart"
-            let month: MonthOfYear = MonthOfYear.January
-            let date: String = "11"
-            let year: String = "2021"
-            let expectedDate: String = "2021-01-11"
-            let todoModel = TodoModel(type: type, title: title, month: month, date: date, year: year, expectedDate: expectedDate)
-            
-            addEditTodoFeature.iGotoNewTodoScreen()
-            addEditTodoFeature.iInputNewTodo(todoModel: todoModel)
-            addEditTodoFeature.iVerifyTargetCell(todoModel: todoModel)
+    func test_TODO_103() {
+        XCTContext.runActivity(named: "Add new 10 Todo-List") { _ in
+            for index in 1...10 {
+                title = "test_TODO_103: \(index)"
+                todoModel = TodoModel(type: type, title: title, month: month, date: date, year: year, expectedDate: expectedDate)
+                addEditTodoFeature.iGotoNewTodoScreen()
+                addEditTodoFeature.iInputNewTodo(todoModel: todoModel)
+                addEditTodoFeature.iVerifyLastTodoList(todoModel: todoModel)
+                addEditTodoFeature.iVerifyTodoDetail(todoModel: todoModel)
+                addEditTodoFeature.iClickDone()
+            }
         }
     }
     
-    func test_TODO_101_4() {
-        XCTContext.runActivity(named: "Create new Todo-List: travel") { _ in
-            let type: TodoType = TodoType.travel
-            let title: String = "test_TODO_101 travel"
-            let month: MonthOfYear = MonthOfYear.October
-            let date: String = "11"
-            let year: String = "2021"
-            let expectedDate: String = "2021-10-11"
-            let todoModel = TodoModel(type: type, title: title, month: month, date: date, year: year, expectedDate: expectedDate)
-            
+    func test_TODO_104() {
+        XCTContext.runActivity(named: "Crete new shopping-cart and phone Todo-List, Delete all shopping-cart type") { _ in
+            type = TodoType.shopping_cart
+            title = "test_TODO_102 shoppin cart"
+            month = MonthOfYear.December
+            date = "12"
+            year = "2022"
+            expectedDate = "2022-12-12"
+            todoModel = TodoModel(type: type, title: title, month: month, date: date, year: year, expectedDate: expectedDate)
             addEditTodoFeature.iGotoNewTodoScreen()
             addEditTodoFeature.iInputNewTodo(todoModel: todoModel)
-            addEditTodoFeature.iVerifyTargetCell(todoModel: todoModel)
+            addEditTodoFeature.iVerifyLastTodoList(todoModel: todoModel)
+            addEditTodoFeature.iVerifyTodoDetail(todoModel: todoModel)
+            addEditTodoFeature.iClickDone()
+            
+            type = TodoType.phone
+            title = "test_TODO_102 Phone"
+            month = MonthOfYear.December
+            date = "12"
+            year = "2022"
+            expectedDate = "2022-12-12"
+            todoModel = TodoModel(type: type, title: title, month: month, date: date, year: year, expectedDate: expectedDate)
+            addEditTodoFeature.iGotoNewTodoScreen()
+            addEditTodoFeature.iInputNewTodo(todoModel: todoModel)
+            addEditTodoFeature.iVerifyLastTodoList(todoModel: todoModel)
+            addEditTodoFeature.iVerifyTodoDetail(todoModel: todoModel)
+            addEditTodoFeature.iClickDone()
+            deleteTodoFeature.iDeleteTodoByType(type: TodoType.shopping_cart)
         }
     }
-
 }

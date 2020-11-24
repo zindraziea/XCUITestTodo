@@ -22,6 +22,8 @@
 		384B2BAC256CE46D00BE8E56 /* AddEditTodoFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384B2BAB256CE46D00BE8E56 /* AddEditTodoFeature.swift */; };
 		384B2BAE256CE8AF00BE8E56 /* TodoDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384B2BAD256CE8AF00BE8E56 /* TodoDetailScreen.swift */; };
 		384B2BB0256CE8BD00BE8E56 /* TodoListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384B2BAF256CE8BD00BE8E56 /* TodoListScreen.swift */; };
+		384B2BB3256D03E400BE8E56 /* CommonFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384B2BB2256D03E400BE8E56 /* CommonFunction.swift */; };
+		384B2BB5256D188700BE8E56 /* DeleteTodoFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384B2BB4256D188700BE8E56 /* DeleteTodoFeature.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,8 @@
 		384B2BAB256CE46D00BE8E56 /* AddEditTodoFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditTodoFeature.swift; sourceTree = "<group>"; };
 		384B2BAD256CE8AF00BE8E56 /* TodoDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDetailScreen.swift; sourceTree = "<group>"; };
 		384B2BAF256CE8BD00BE8E56 /* TodoListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListScreen.swift; sourceTree = "<group>"; };
+		384B2BB2256D03E400BE8E56 /* CommonFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonFunction.swift; sourceTree = "<group>"; };
+		384B2BB4256D188700BE8E56 /* DeleteTodoFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteTodoFeature.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +115,7 @@
 		384B2B96256B6B4E00BE8E56 /* TodoUITests */ = {
 			isa = PBXGroup;
 			children = (
+				384B2BB1256D03C900BE8E56 /* Utils */,
 				384B2BA3256BBBE000BE8E56 /* Keyword */,
 				384B2B9F256BA69E00BE8E56 /* Testcase */,
 				384B2B97256B6B4E00BE8E56 /* TodoUITests.swift */,
@@ -150,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				384B2BAB256CE46D00BE8E56 /* AddEditTodoFeature.swift */,
+				384B2BB4256D188700BE8E56 /* DeleteTodoFeature.swift */,
 			);
 			path = Feature;
 			sourceTree = "<group>";
@@ -161,6 +167,14 @@
 				384B2BAF256CE8BD00BE8E56 /* TodoListScreen.swift */,
 			);
 			path = Screen;
+			sourceTree = "<group>";
+		};
+		384B2BB1256D03C900BE8E56 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				384B2BB2256D03E400BE8E56 /* CommonFunction.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,12 +293,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				384B2BB5256D188700BE8E56 /* DeleteTodoFeature.swift in Sources */,
 				384B2BAE256CE8AF00BE8E56 /* TodoDetailScreen.swift in Sources */,
 				384B2BA5256BBBF100BE8E56 /* UITestEnum.swift in Sources */,
 				384B2BAC256CE46D00BE8E56 /* AddEditTodoFeature.swift in Sources */,
 				384B2BA8256CC33600BE8E56 /* TodoModel.swift in Sources */,
 				384B2BA1256BA6D700BE8E56 /* CreateTodoTestSuite.swift in Sources */,
 				384B2B98256B6B4E00BE8E56 /* TodoUITests.swift in Sources */,
+				384B2BB3256D03E400BE8E56 /* CommonFunction.swift in Sources */,
 				384B2BB0256CE8BD00BE8E56 /* TodoListScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

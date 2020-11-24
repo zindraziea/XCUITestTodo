@@ -8,7 +8,7 @@
 
 import XCTest
 
-class TodoDetailScreen: XCTestCase {
+class TodoDetailScreen: CommonFunction {
     private lazy var app = XCUIApplication()
     private lazy var txtTodoTitle: XCUIElement = app.staticTexts["Todo Title:"]
     private lazy var txtTodoLabel: XCUIElement = app.textFields["todoTitleLabel3"]
@@ -25,8 +25,7 @@ class TodoDetailScreen: XCTestCase {
     
     func iInputTodoTitle(title: String) {
         XCTContext.runActivity(named: "Input to do title: \(title)") { _ in
-            txtTodoLabel.tap()
-            txtTodoLabel.typeText(title)
+            txtTodoLabel.clearAndEnterText(title)
         }
     }
     
