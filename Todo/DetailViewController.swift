@@ -42,6 +42,8 @@ class DetailViewController: UIViewController {
       title = "New Todo"
       childButton.isSelected = true
     }
+    todoTitleLabel.isAccessibilityElement = true
+    todoTitleLabel.accessibilityIdentifier = "todoTitleLabel3"
   }
   
   // MARK: type select
