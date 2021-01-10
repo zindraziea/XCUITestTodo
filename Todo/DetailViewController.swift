@@ -41,6 +41,10 @@ class DetailViewController: UIViewController {
     } else {
       title = "New Todo"
       childButton.isSelected = true
+
+    }
+    if #available(iOS 13.4, *) {
+        todoDatePicker.preferredDatePickerStyle = .wheels
     }
   }
   
