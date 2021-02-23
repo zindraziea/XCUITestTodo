@@ -46,6 +46,8 @@ class DetailViewController: UIViewController {
     if #available(iOS 13.4, *) {
         todoDatePicker.preferredDatePickerStyle = .wheels
     }
+    todoTitleLabel.isAccessibilityElement = true
+    todoTitleLabel.accessibilityIdentifier = "tfTodoTitle3"
   }
   
   // MARK: type select
