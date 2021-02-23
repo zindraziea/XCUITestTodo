@@ -15,6 +15,9 @@
 		19515FA01C855C7300DC2284 /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19515F9F1C855C7300DC2284 /* ToDoItem.swift */; };
 		19515FA21C855D9A00DC2284 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19515FA11C855D9A00DC2284 /* Utils.swift */; };
 		19A79A371C869E270087EEBA /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A79A361C869E260087EEBA /* DetailViewController.swift */; };
+		38DA253725E52738005373C9 /* CreateEditTodoFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DA253625E52738005373C9 /* CreateEditTodoFeature.swift */; };
+		38DA253B25E527C2005373C9 /* TodoListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DA253A25E527C2005373C9 /* TodoListScreen.swift */; };
+		38DA253F25E527D6005373C9 /* TodoDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DA253E25E527D6005373C9 /* TodoDetailScreen.swift */; };
 		38EFD97D25C969C200FACCF1 /* TodoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EFD97C25C969C200FACCF1 /* TodoUITests.swift */; };
 		38EFD98925C96A8500FACCF1 /* CreateTodoTestSuite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EFD98825C96A8500FACCF1 /* CreateTodoTestSuite.swift */; };
 /* End PBXBuildFile section */
@@ -40,6 +43,9 @@
 		19515F9F1C855C7300DC2284 /* ToDoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
 		19515FA11C855D9A00DC2284 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		19A79A361C869E260087EEBA /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		38DA253625E52738005373C9 /* CreateEditTodoFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEditTodoFeature.swift; sourceTree = "<group>"; };
+		38DA253A25E527C2005373C9 /* TodoListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListScreen.swift; sourceTree = "<group>"; };
+		38DA253E25E527D6005373C9 /* TodoDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDetailScreen.swift; sourceTree = "<group>"; };
 		38EFD97A25C969C200FACCF1 /* TodoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TodoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		38EFD97C25C969C200FACCF1 /* TodoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoUITests.swift; sourceTree = "<group>"; };
 		38EFD97E25C969C200FACCF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -98,6 +104,23 @@
 			path = Todo;
 			sourceTree = "<group>";
 		};
+		38DA252C25E526DE005373C9 /* Feature */ = {
+			isa = PBXGroup;
+			children = (
+				38DA253625E52738005373C9 /* CreateEditTodoFeature.swift */,
+			);
+			path = Feature;
+			sourceTree = "<group>";
+		};
+		38DA252D25E526E6005373C9 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				38DA253A25E527C2005373C9 /* TodoListScreen.swift */,
+				38DA253E25E527D6005373C9 /* TodoDetailScreen.swift */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
 		38EFD97B25C969C200FACCF1 /* TodoUITests */ = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +135,8 @@
 		38EFD98625C96A4F00FACCF1 /* Keyword */ = {
 			isa = PBXGroup;
 			children = (
+				38DA252D25E526E6005373C9 /* Screen */,
+				38DA252C25E526DE005373C9 /* Feature */,
 			);
 			path = Keyword;
 			sourceTree = "<group>";
@@ -240,6 +265,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38DA253725E52738005373C9 /* CreateEditTodoFeature.swift in Sources */,
+				38DA253B25E527C2005373C9 /* TodoListScreen.swift in Sources */,
+				38DA253F25E527D6005373C9 /* TodoDetailScreen.swift in Sources */,
 				38EFD98925C96A8500FACCF1 /* CreateTodoTestSuite.swift in Sources */,
 				38EFD97D25C969C200FACCF1 /* TodoUITests.swift in Sources */,
 			);

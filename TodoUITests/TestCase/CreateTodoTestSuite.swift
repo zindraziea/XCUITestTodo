@@ -11,6 +11,7 @@ import XCTest
 class CreateTodoTestSuite: XCTestCase {
 
     private lazy var app = XCUIApplication()
+    private lazy var createEditTodoFeature = CreateEditTodoFeature()
     private lazy var btnNewTodo: XCUIElement = app.buttons["+"]
     private lazy var txtTitle: XCUIElement = app.staticTexts["Todo Title:"]
     private lazy var tfTodoTitle: XCUIElement = app.textFields["tfTodoTitle3"]
@@ -36,26 +37,10 @@ class CreateTodoTestSuite: XCTestCase {
             let expectedDate: String = "2023-02-11"
             let todoType: String = "child"
             
-            btnNewTodo.tap()
-            app.buttons[todoType].tap()
-            tfTodoTitle.tap()
-            tfTodoTitle.typeText(title)
-            pkMonth.adjust(toPickerWheelValue: month)
-            pkDate.adjust(toPickerWheelValue: date)
-            pkYear.adjust(toPickerWheelValue: year)
-            txtTitle.tap()
-            btnDone.tap()
-            let cellCount: Int = app.tables.cells.count
-            let targetCell: XCUIElement = app.tables.cells.element(boundBy: cellCount-1)
-            XCTAssert(targetCell.images["\(todoType.replacingOccurrences(of: " ", with: "-"))-selected"].exists)
-            XCTAssertEqual(targetCell.staticTexts["titleLabel"].label, title)
-            XCTAssertEqual(targetCell.staticTexts["dateLabel"].label, expectedDate)
-            targetCell.tap()
-            XCTAssert(app.buttons[todoType].isSelected)
-            XCTAssertEqual(tfTodoTitle.value as? String, title)
-            XCTAssertEqual(pkMonth.value as? String, month)
-            XCTAssertEqual(pkDate.value as? String, date)
-            XCTAssertEqual(pkYear.value as? String, year)
+            createEditTodoFeature.iGotoNewTodoScreen()
+            createEditTodoFeature.iInputNewTodo(todoType: todoType, title: title, month: month, date: date, year: year)
+            createEditTodoFeature.iVerifyTargetTodoList(todoType: todoType, title: title, expectedDate: expectedDate)
+            createEditTodoFeature.iVerifyTodoDetail(todoType: todoType, title: title, month: month, date: date, year: year)
         }
     }
 
@@ -68,26 +53,10 @@ class CreateTodoTestSuite: XCTestCase {
             let expectedDate: String = "2022-02-03"
             let todoType: String = "phone"
             
-            btnNewTodo.tap()
-            app.buttons[todoType].tap()
-            tfTodoTitle.tap()
-            tfTodoTitle.typeText(title)
-            pkMonth.adjust(toPickerWheelValue: month)
-            pkDate.adjust(toPickerWheelValue: date)
-            pkYear.adjust(toPickerWheelValue: year)
-            txtTitle.tap()
-            btnDone.tap()
-            let cellCount: Int = app.tables.cells.count
-            let targetCell: XCUIElement = app.tables.cells.element(boundBy: cellCount-1)
-            XCTAssert(targetCell.images["\(todoType.replacingOccurrences(of: " ", with: "-"))-selected"].exists)
-            XCTAssertEqual(targetCell.staticTexts["titleLabel"].label, title)
-            XCTAssertEqual(targetCell.staticTexts["dateLabel"].label, expectedDate)
-            targetCell.tap()
-            XCTAssert(app.buttons[todoType].isSelected)
-            XCTAssertEqual(tfTodoTitle.value as? String, title)
-            XCTAssertEqual(pkMonth.value as? String, month)
-            XCTAssertEqual(pkDate.value as? String, date)
-            XCTAssertEqual(pkYear.value as? String, year)
+            createEditTodoFeature.iGotoNewTodoScreen()
+            createEditTodoFeature.iInputNewTodo(todoType: todoType, title: title, month: month, date: date, year: year)
+            createEditTodoFeature.iVerifyLastTodoList(todoType: todoType, title: title, expectedDate: expectedDate)
+            createEditTodoFeature.iVerifyTodoDetail(todoType: todoType, title: title, month: month, date: date, year: year)
         }
     }
     
@@ -100,26 +69,10 @@ class CreateTodoTestSuite: XCTestCase {
             let expectedDate: String = "2023-02-11"
             let todoType: String = "shopping cart"
             
-            btnNewTodo.tap()
-            app.buttons[todoType].tap()
-            tfTodoTitle.tap()
-            tfTodoTitle.typeText(title)
-            pkMonth.adjust(toPickerWheelValue: month)
-            pkDate.adjust(toPickerWheelValue: date)
-            pkYear.adjust(toPickerWheelValue: year)
-            txtTitle.tap()
-            btnDone.tap()
-            let cellCount: Int = app.tables.cells.count
-            let targetCell: XCUIElement = app.tables.cells.element(boundBy: cellCount-1)
-            XCTAssert(targetCell.images["\(todoType.replacingOccurrences(of: " ", with: "-"))-selected"].exists)
-            XCTAssertEqual(targetCell.staticTexts["titleLabel"].label, title)
-            XCTAssertEqual(targetCell.staticTexts["dateLabel"].label, expectedDate)
-            targetCell.tap()
-            XCTAssert(app.buttons[todoType].isSelected)
-            XCTAssertEqual(tfTodoTitle.value as? String, title)
-            XCTAssertEqual(pkMonth.value as? String, month)
-            XCTAssertEqual(pkDate.value as? String, date)
-            XCTAssertEqual(pkYear.value as? String, year)
+            createEditTodoFeature.iGotoNewTodoScreen()
+            createEditTodoFeature.iInputNewTodo(todoType: todoType, title: title, month: month, date: date, year: year)
+            createEditTodoFeature.iVerifyLastTodoList(todoType: todoType, title: title, expectedDate: expectedDate)
+            createEditTodoFeature.iVerifyTodoDetail(todoType: todoType, title: title, month: month, date: date, year: year)
         }
     }
     
@@ -132,26 +85,10 @@ class CreateTodoTestSuite: XCTestCase {
             let expectedDate: String = "2023-02-11"
             let todoType: String = "travel"
             
-            btnNewTodo.tap()
-            app.buttons[todoType].tap()
-            tfTodoTitle.tap()
-            tfTodoTitle.typeText(title)
-            pkMonth.adjust(toPickerWheelValue: month)
-            pkDate.adjust(toPickerWheelValue: date)
-            pkYear.adjust(toPickerWheelValue: year)
-            txtTitle.tap()
-            btnDone.tap()
-            let cellCount: Int = app.tables.cells.count
-            let targetCell: XCUIElement = app.tables.cells.element(boundBy: cellCount-1)
-            XCTAssert(targetCell.images["\(todoType.replacingOccurrences(of: " ", with: "-"))-selected"].exists)
-            XCTAssertEqual(targetCell.staticTexts["titleLabel"].label, title)
-            XCTAssertEqual(targetCell.staticTexts["dateLabel"].label, expectedDate)
-            targetCell.tap()
-            XCTAssert(app.buttons[todoType].isSelected)
-            XCTAssertEqual(tfTodoTitle.value as? String, title)
-            XCTAssertEqual(pkMonth.value as? String, month)
-            XCTAssertEqual(pkDate.value as? String, date)
-            XCTAssertEqual(pkYear.value as? String, year)
+            createEditTodoFeature.iGotoNewTodoScreen()
+            createEditTodoFeature.iInputNewTodo(todoType: todoType, title: title, month: month, date: date, year: year)
+            createEditTodoFeature.iVerifyLastTodoList(todoType: todoType, title: title, expectedDate: expectedDate)
+            createEditTodoFeature.iVerifyTodoDetail(todoType: todoType, title: title, month: month, date: date, year: year)
         }
     }
 
