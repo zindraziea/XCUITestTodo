@@ -17,25 +17,25 @@ class CreateEditTodoFeature: XCTestCase {
         todoListScreen.iClickAddNewTodo()
     }
     
-    func iInputNewTodo(todoType: String, title: String, month: String, date: String, year: String) {
-        todoDetailScreen.iSelectTodoType(todoType: todoType)
-        todoDetailScreen.iInputTodoTitle(title: title)
-        todoDetailScreen.iSelectMonthDateYear(month: month, date: date, year: year)
+    func iInputNewTodo(todoModel: TodoModel) {
+        todoDetailScreen.iSelectTodoType(todoType: todoModel.type.rawValue)
+        todoDetailScreen.iInputTodoTitle(title: todoModel.title)
+        todoDetailScreen.iSelectMonthDateYear(month: todoModel.month.rawValue, date: todoModel.date, year: todoModel.year)
         todoDetailScreen.iClickDone()
     }
     
-    func iVerifyLastTodoList(todoType: String, title: String, expectedDate: String) {
-        todoListScreen.iVerifyLastTodoList(todoType: todoType, title: title, expectedDate: expectedDate)
+    func iVerifyLastTodoList(todoModel: TodoModel) {
+        todoListScreen.iVerifyLastTodoList(todoType: todoModel.type.rawValue, title: todoModel.title, expectedDate: todoModel.expectedDate)
     }
     
-    func iVerifyTargetTodoList(todoType: String, title: String, expectedDate: String) {
-        todoListScreen.iVerifyTargetTodoList(todoType: todoType, title: title, expectedDate: expectedDate)
+    func iVerifyTargetTodoList(todoModel: TodoModel) {
+        todoListScreen.iVerifyTargetTodoList(todoType: todoModel.type.rawValue, title: todoModel.title, expectedDate: todoModel.expectedDate)
     }
     
-    func iVerifyTodoDetail(todoType: String, title: String, month: String, date: String, year: String) {
-        todoDetailScreen.iVerifyTodoType(todoType: todoType)
-        todoDetailScreen.iVerifyTodoTitle(title: title)
-        todoDetailScreen.iVerifyDateMonthYear(month: month, date: date, year: year)
+    func iVerifyTodoDetail(todoModel: TodoModel) {
+        todoDetailScreen.iVerifyTodoType(todoType: todoModel.type.rawValue)
+        todoDetailScreen.iVerifyTodoTitle(title: todoModel.title)
+        todoDetailScreen.iVerifyDateMonthYear(month: todoModel.month.rawValue, date: todoModel.date, year: todoModel.year)
     }
     
 }

@@ -12,13 +12,14 @@ class CreateTodoTestSuite: XCTestCase {
 
     private lazy var app = XCUIApplication()
     private lazy var createEditTodoFeature = CreateEditTodoFeature()
-    private lazy var btnNewTodo: XCUIElement = app.buttons["+"]
-    private lazy var txtTitle: XCUIElement = app.staticTexts["Todo Title:"]
-    private lazy var tfTodoTitle: XCUIElement = app.textFields["tfTodoTitle3"]
-    private lazy var pkMonth: XCUIElement = app.datePickers.pickerWheels.element(boundBy: 0)
-    private lazy var pkDate: XCUIElement = app.datePickers.pickerWheels.element(boundBy: 1)
-    private lazy var pkYear: XCUIElement = app.datePickers.pickerWheels.element(boundBy: 2)
-    private lazy var btnDone: XCUIElement = app.buttons["Done"]
+    //Test Data
+    private lazy var title: String = "test 101"
+    private lazy var month: MonthOfYear = MonthOfYear.February
+    private lazy var date: String = "11"
+    private lazy var year: String = "2023"
+    private lazy var expectedDate: String = "2023-02-11"
+    private lazy var todoType: TodoType = TodoType.child
+    private lazy var todoModel = TodoModel(title: title, month: month, date: date, year: year, expectedDate: expectedDate, type: todoType)
     
     override func setUpWithError() throws {
         continueAfterFailure = false
@@ -30,66 +31,60 @@ class CreateTodoTestSuite: XCTestCase {
     
     func test101_1() {
         XCTContext.runActivity(named: "Create new Todo-List: child") { _ in
-            let title: String = "test 101"
-            let month: String = "February"
-            let date: String = "11"
-            let year: String = "2023"
-            let expectedDate: String = "2023-02-11"
-            let todoType: String = "child"
             
             createEditTodoFeature.iGotoNewTodoScreen()
-            createEditTodoFeature.iInputNewTodo(todoType: todoType, title: title, month: month, date: date, year: year)
-            createEditTodoFeature.iVerifyTargetTodoList(todoType: todoType, title: title, expectedDate: expectedDate)
-            createEditTodoFeature.iVerifyTodoDetail(todoType: todoType, title: title, month: month, date: date, year: year)
+            createEditTodoFeature.iInputNewTodo(todoModel: todoModel)
+            createEditTodoFeature.iVerifyTargetTodoList(todoModel: todoModel)
+            createEditTodoFeature.iVerifyTodoDetail(todoModel: todoModel)
         }
     }
 
-    func test101_2() {
-        XCTContext.runActivity(named: "Create new Todo-List: phone") { _ in
-            let title: String = "test 101"
-            let month: String = "February"
-            let date: String = "3"
-            let year: String = "2022"
-            let expectedDate: String = "2022-02-03"
-            let todoType: String = "phone"
-            
-            createEditTodoFeature.iGotoNewTodoScreen()
-            createEditTodoFeature.iInputNewTodo(todoType: todoType, title: title, month: month, date: date, year: year)
-            createEditTodoFeature.iVerifyLastTodoList(todoType: todoType, title: title, expectedDate: expectedDate)
-            createEditTodoFeature.iVerifyTodoDetail(todoType: todoType, title: title, month: month, date: date, year: year)
-        }
-    }
-    
-    func test101_3() {
-        XCTContext.runActivity(named: "Create new Todo-List: shopping cart") { _ in
-            let title: String = "test 101"
-            let month: String = "February"
-            let date: String = "11"
-            let year: String = "2023"
-            let expectedDate: String = "2023-02-11"
-            let todoType: String = "shopping cart"
-            
-            createEditTodoFeature.iGotoNewTodoScreen()
-            createEditTodoFeature.iInputNewTodo(todoType: todoType, title: title, month: month, date: date, year: year)
-            createEditTodoFeature.iVerifyLastTodoList(todoType: todoType, title: title, expectedDate: expectedDate)
-            createEditTodoFeature.iVerifyTodoDetail(todoType: todoType, title: title, month: month, date: date, year: year)
-        }
-    }
-    
-    func test101_4() {
-        XCTContext.runActivity(named: "Create new Todo-List: travel") { _ in
-            let title: String = "test 101"
-            let month: String = "February"
-            let date: String = "11"
-            let year: String = "2023"
-            let expectedDate: String = "2023-02-11"
-            let todoType: String = "travel"
-            
-            createEditTodoFeature.iGotoNewTodoScreen()
-            createEditTodoFeature.iInputNewTodo(todoType: todoType, title: title, month: month, date: date, year: year)
-            createEditTodoFeature.iVerifyLastTodoList(todoType: todoType, title: title, expectedDate: expectedDate)
-            createEditTodoFeature.iVerifyTodoDetail(todoType: todoType, title: title, month: month, date: date, year: year)
-        }
-    }
+//    func test101_2() {
+//        XCTContext.runActivity(named: "Create new Todo-List: phone") { _ in
+//            let title: String = "test 101"
+//            let month: String = "February"
+//            let date: String = "3"
+//            let year: String = "2022"
+//            let expectedDate: String = "2022-02-03"
+//            let todoType: String = "phone"
+//
+//            createEditTodoFeature.iGotoNewTodoScreen()
+//            createEditTodoFeature.iInputNewTodo(todoType: todoType, title: title, month: month, date: date, year: year)
+//            createEditTodoFeature.iVerifyLastTodoList(todoType: todoType, title: title, expectedDate: expectedDate)
+//            createEditTodoFeature.iVerifyTodoDetail(todoType: todoType, title: title, month: month, date: date, year: year)
+//        }
+//    }
+//
+//    func test101_3() {
+//        XCTContext.runActivity(named: "Create new Todo-List: shopping cart") { _ in
+//            let title: String = "test 101"
+//            let month: String = "February"
+//            let date: String = "11"
+//            let year: String = "2023"
+//            let expectedDate: String = "2023-02-11"
+//            let todoType: String = "shopping cart"
+//
+//            createEditTodoFeature.iGotoNewTodoScreen()
+//            createEditTodoFeature.iInputNewTodo(todoType: todoType, title: title, month: month, date: date, year: year)
+//            createEditTodoFeature.iVerifyLastTodoList(todoType: todoType, title: title, expectedDate: expectedDate)
+//            createEditTodoFeature.iVerifyTodoDetail(todoType: todoType, title: title, month: month, date: date, year: year)
+//        }
+//    }
+//
+//    func test101_4() {
+//        XCTContext.runActivity(named: "Create new Todo-List: travel") { _ in
+//            let title: String = "test 101"
+//            let month: String = "February"
+//            let date: String = "11"
+//            let year: String = "2023"
+//            let expectedDate: String = "2023-02-11"
+//            let todoType: String = "travel"
+//
+//            createEditTodoFeature.iGotoNewTodoScreen()
+//            createEditTodoFeature.iInputNewTodo(todoType: todoType, title: title, month: month, date: date, year: year)
+//            createEditTodoFeature.iVerifyLastTodoList(todoType: todoType, title: title, expectedDate: expectedDate)
+//            createEditTodoFeature.iVerifyTodoDetail(todoType: todoType, title: title, month: month, date: date, year: year)
+//        }
+//    }
 
 }
