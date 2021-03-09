@@ -8,7 +8,7 @@
 
 import XCTest
 
-class CreateEditTodoFeature: XCTestCase {
+class CreateEditTodoFeature: CommonUtils {
 
     private lazy var todoListScreen = TodoListScreen()
     private lazy var todoDetailScreen = TodoDetailScreen()
@@ -38,4 +38,7 @@ class CreateEditTodoFeature: XCTestCase {
         todoDetailScreen.iVerifyDateMonthYear(month: todoModel.month.rawValue, date: todoModel.date, year: todoModel.year)
     }
     
+    func iClickDone() {
+        todoDetailScreen.iClickDone()
+    }
 }

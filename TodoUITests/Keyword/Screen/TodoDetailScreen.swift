@@ -8,7 +8,7 @@
 
 import XCTest
 
-class TodoDetailScreen: XCTestCase {
+class TodoDetailScreen: CommonUtils {
     
     private lazy var app = XCUIApplication()
     private lazy var txtTitle: XCUIElement = app.staticTexts["Todo Title:"]
@@ -23,8 +23,9 @@ class TodoDetailScreen: XCTestCase {
     }
     
     func iInputTodoTitle(title: String) {
-        tfTodoTitle.tap()
-        tfTodoTitle.typeText(title)
+//        tfTodoTitle.tap()
+//        tfTodoTitle.typeText(title)
+        tfTodoTitle.clearAndEnterText(title)
     }
     
     func iSelectMonthDateYear(month: String, date: String, year: String) {

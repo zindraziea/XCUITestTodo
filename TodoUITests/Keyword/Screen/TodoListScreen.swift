@@ -8,7 +8,7 @@
 
 import XCTest
 
-class TodoListScreen: XCTestCase {
+class TodoListScreen: CommonUtils {
     
     private lazy var app = XCUIApplication()
     private lazy var btnNewTodo: XCUIElement = app.buttons["+"]
