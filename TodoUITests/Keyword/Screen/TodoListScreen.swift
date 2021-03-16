@@ -12,6 +12,7 @@ class TodoListScreen: CommonUtils {
     
     private lazy var app = XCUIApplication()
     private lazy var btnNewTodo: XCUIElement = app.buttons["+"]
+    private lazy var btnEdit: XCUIElement = app.buttons["Edit"]
     
     func iClickAddNewTodo() {
         btnNewTodo.tap()
@@ -33,6 +34,21 @@ class TodoListScreen: CommonUtils {
         XCTAssertEqual(targetCell.staticTexts["titleLabel"].label, title)
         XCTAssertEqual(targetCell.staticTexts["dateLabel"].label, expectedDate)
         targetCell.tap()
+    }
+    
+    func iClickEdit() {
+        btnEdit.tap()
+    }
+    
+    func iRemoveTodoType(todoType: TodoType) {
+        let cellCount: Int = app.tables.cells.containing(.image, identifier: "\(todoType.rawValue.replacingOccurrences(of: " ", with: "-"))-selected").count
+        if cellCount > 0 {
+            for _ in 1...cellCount {
+                let targetCell: XCUIElement = app.tables.cells.containing(.image, identifier: "\(todoType.rawValue.replacingOccurrences(of: " ", with: "-"))-selected").firstMatch
+                targetCell.buttons.matching(NSPredicate(format: "label CONTAINS 'Delete'")).firstMatch.tap()
+                targetCell.buttons["Delete"].tap()
+            }
+        }
     }
     
 }

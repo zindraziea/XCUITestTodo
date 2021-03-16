@@ -12,6 +12,7 @@ class CreateTodoTestSuite: CommonUtils {
 
     private lazy var app = XCUIApplication()
     private lazy var createEditTodoFeature = CreateEditTodoFeature()
+    private lazy var deleteTodoFeature = DeleteTodoFeature()
     //Test Data
     private lazy var title: String = "test 101"
     private lazy var month: MonthOfYear = MonthOfYear.February
@@ -29,7 +30,7 @@ class CreateTodoTestSuite: CommonUtils {
     override func tearDownWithError() throws {
     }
     
-    func test101_1() {
+    func test101_1CreateSmoke() {
         XCTContext.runActivity(named: "Create new Todo-List: child") { _ in
             createEditTodoFeature.iGotoNewTodoScreen()
             createEditTodoFeature.iInputNewTodo(todoModel: todoModel)
@@ -38,7 +39,7 @@ class CreateTodoTestSuite: CommonUtils {
         }
     }
 
-    func test101_2() {
+    func test101_2CreateRegression() {
         XCTContext.runActivity(named: "Create new Todo-List: phone") { _ in
             todoType = TodoType.phone
             todoModel = TodoModel(title: title, month: month, date: date, year: year, expectedDate: expectedDate, type: todoType)
@@ -49,7 +50,7 @@ class CreateTodoTestSuite: CommonUtils {
         }
     }
 
-    func test101_3() {
+    func test101_3Create() {
         XCTContext.runActivity(named: "Create new Todo-List: shopping cart") { _ in
             todoType = TodoType.shopping_cart
             todoModel = TodoModel(title: title, month: month, date: date, year: year, expectedDate: expectedDate, type: todoType)
@@ -60,7 +61,7 @@ class CreateTodoTestSuite: CommonUtils {
         }
     }
 
-    func test101_4() {
+    func test101_4Create() {
         XCTContext.runActivity(named: "Create new Todo-List: travel") { _ in
             todoType = TodoType.travel
             todoModel = TodoModel(title: title, month: month, date: date, year: year, expectedDate: expectedDate, type: todoType)
@@ -71,7 +72,7 @@ class CreateTodoTestSuite: CommonUtils {
         }
     }
     
-    func test102() {
+    func test102EditRegression() {
         XCTContext.runActivity(named: "Edit description on new Todo-List") { _ in
             createEditTodoFeature.iGotoNewTodoScreen()
             createEditTodoFeature.iInputNewTodo(todoModel: todoModel)
@@ -90,7 +91,7 @@ class CreateTodoTestSuite: CommonUtils {
         }
     }
     
-    func test103() {
+    func test103CreateRegression() {
         XCTContext.runActivity(named: "Add new 10 Todo-List") { _ in
             for index in 1...10 {
                 title = "test 103 iteration \(index)"
@@ -104,9 +105,26 @@ class CreateTodoTestSuite: CommonUtils {
         }
     }
     
-    func test104() {
+    func test104DeleteRegression() {
         XCTContext.runActivity(named: "Crete new shopping-cart and phone Todo-List, Delete all shopping-cart type") { _ in
+            title = "test104-1"
+            todoType = TodoType.shopping_cart
+            todoModel = TodoModel(title: title, month: month, date: date, year: year, expectedDate: expectedDate, type: todoType)
+            title = "test104-2"
+            todoType = TodoType.phone
+            let todoModel2 = TodoModel(title: title, month: month, date: date, year: year, expectedDate: expectedDate, type: todoType)
             
+            createEditTodoFeature.iGotoNewTodoScreen()
+            createEditTodoFeature.iInputNewTodo(todoModel: todoModel)
+            createEditTodoFeature.iVerifyTargetTodoList(todoModel: todoModel)
+            createEditTodoFeature.iVerifyTodoDetail(todoModel: todoModel)
+            createEditTodoFeature.iClickDone()
+            createEditTodoFeature.iGotoNewTodoScreen()
+            createEditTodoFeature.iInputNewTodo(todoModel: todoModel2)
+            createEditTodoFeature.iVerifyTargetTodoList(todoModel: todoModel2)
+            createEditTodoFeature.iVerifyTodoDetail(todoModel: todoModel2)
+            createEditTodoFeature.iClickDone()
+            deleteTodoFeature.iRemoveType(todoType: TodoType.shopping_cart)
         }
     }
 

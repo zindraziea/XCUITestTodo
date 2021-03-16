@@ -1,0 +1,32 @@
+{
+  "configurations" : [
+    {
+      "id" : "665B3E61-9436-4962-85F0-46E2FA319695",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "skippedTests" : [
+        "CommonUtils",
+        "CreateEditTodoFeature",
+        "DeleteTodoFeature",
+        "TodoDetailScreen",
+        "TodoListScreen",
+        "TodoUITests"
+      ],
+      "target" : {
+        "containerPath" : "container:Todo.xcodeproj",
+        "identifier" : "38EFD97925C969C200FACCF1",
+        "name" : "TodoUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

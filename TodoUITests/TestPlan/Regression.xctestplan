@@ -1,0 +1,31 @@
+{
+  "configurations" : [
+    {
+      "id" : "21698646-F0C5-49E0-9ECF-246C6E742BAE",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "selectedTests" : [
+        "CreateTodoTestSuite\/test101_1CreateSmoke()",
+        "CreateTodoTestSuite\/test101_2CreateRegression()",
+        "CreateTodoTestSuite\/test102EditRegression()",
+        "CreateTodoTestSuite\/test103CreateRegression()",
+        "CreateTodoTestSuite\/test104DeleteRegression()"
+      ],
+      "target" : {
+        "containerPath" : "container:Todo.xcodeproj",
+        "identifier" : "38EFD97925C969C200FACCF1",
+        "name" : "TodoUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

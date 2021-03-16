@@ -23,6 +23,7 @@
 		38DA253F25E527D6005373C9 /* TodoDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DA253E25E527D6005373C9 /* TodoDetailScreen.swift */; };
 		38EFD97D25C969C200FACCF1 /* TodoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EFD97C25C969C200FACCF1 /* TodoUITests.swift */; };
 		38EFD98925C96A8500FACCF1 /* CreateTodoTestSuite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EFD98825C96A8500FACCF1 /* CreateTodoTestSuite.swift */; };
+		38F7C77F2600D632007FD1C7 /* DeleteTodoFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F7C77E2600D632007FD1C7 /* DeleteTodoFeature.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,10 @@
 		38EFD97C25C969C200FACCF1 /* TodoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoUITests.swift; sourceTree = "<group>"; };
 		38EFD97E25C969C200FACCF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38EFD98825C96A8500FACCF1 /* CreateTodoTestSuite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTodoTestSuite.swift; sourceTree = "<group>"; };
+		38F7C77E2600D632007FD1C7 /* DeleteTodoFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteTodoFeature.swift; sourceTree = "<group>"; };
+		38F7C7832600DD75007FD1C7 /* SmokeTest.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = SmokeTest.xctestplan; sourceTree = "<group>"; };
+		38F7C7872600DF08007FD1C7 /* Regression.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Regression.xctestplan; sourceTree = "<group>"; };
+		38F7C7882600DFA4007FD1C7 /* newTodoFeature.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = newTodoFeature.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				38DA253625E52738005373C9 /* CreateEditTodoFeature.swift */,
+				38F7C77E2600D632007FD1C7 /* DeleteTodoFeature.swift */,
 			);
 			path = Feature;
 			sourceTree = "<group>";
@@ -147,6 +153,7 @@
 		38EFD97B25C969C200FACCF1 /* TodoUITests */ = {
 			isa = PBXGroup;
 			children = (
+				38F7C7822600DD4A007FD1C7 /* TestPlan */,
 				38EFD98725C96A5B00FACCF1 /* TestCase */,
 				38EFD98625C96A4F00FACCF1 /* Keyword */,
 				38EFD97C25C969C200FACCF1 /* TodoUITests.swift */,
@@ -172,6 +179,16 @@
 				38EFD98825C96A8500FACCF1 /* CreateTodoTestSuite.swift */,
 			);
 			path = TestCase;
+			sourceTree = "<group>";
+		};
+		38F7C7822600DD4A007FD1C7 /* TestPlan */ = {
+			isa = PBXGroup;
+			children = (
+				38F7C7832600DD75007FD1C7 /* SmokeTest.xctestplan */,
+				38F7C7872600DF08007FD1C7 /* Regression.xctestplan */,
+				38F7C7882600DFA4007FD1C7 /* newTodoFeature.xctestplan */,
+			);
+			path = TestPlan;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,6 +307,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38F7C77F2600D632007FD1C7 /* DeleteTodoFeature.swift in Sources */,
 				38DA253725E52738005373C9 /* CreateEditTodoFeature.swift in Sources */,
 				38DA253B25E527C2005373C9 /* TodoListScreen.swift in Sources */,
 				38DA253F25E527D6005373C9 /* TodoDetailScreen.swift in Sources */,

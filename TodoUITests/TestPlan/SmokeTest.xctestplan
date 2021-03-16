@@ -1,0 +1,27 @@
+{
+  "configurations" : [
+    {
+      "id" : "9932CC0D-F8D0-4A15-BE5F-EF7132CD7346",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "selectedTests" : [
+        "CreateTodoTestSuite\/test101_1CreateSmoke()"
+      ],
+      "target" : {
+        "containerPath" : "container:Todo.xcodeproj",
+        "identifier" : "38EFD97925C969C200FACCF1",
+        "name" : "TodoUITests"
+      }
+    }
+  ],
+  "version" : 1
+}
