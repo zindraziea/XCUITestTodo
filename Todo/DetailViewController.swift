@@ -35,17 +35,17 @@ class DetailViewController: UIViewController {
       else if todo.image == "travel-selected"{
         travelButton.isSelected = true
       }
-      
       todoTitleLabel.text = todo.title
       todoDatePicker.setDate(todo.date, animated: false)
     } else {
       title = "New Todo"
       childButton.isSelected = true
-
     }
     if #available(iOS 13.4, *) {
         todoDatePicker.preferredDatePickerStyle = .wheels
     }
+    todoTitleLabel.isAccessibilityElement = true
+    todoTitleLabel.accessibilityIdentifier = "tfTodoTitle3"
   }
   
   // MARK: type select
