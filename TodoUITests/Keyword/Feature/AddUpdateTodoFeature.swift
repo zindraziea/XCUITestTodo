@@ -8,7 +8,7 @@
 
 import XCTest
 
-class AddUpdateTodoFeature: XCTestCase {
+class AddUpdateTodoFeature: CommonFunction {
     
     private lazy var todoListScreen = TodoListScreen()
     private lazy var todoDetailScreen = TodoDetailScreen()
@@ -17,25 +17,28 @@ class AddUpdateTodoFeature: XCTestCase {
         todoListScreen.iClickAddNewTodo()
     }
     
-    func iInputTodoDetail(type: String, title: String, month: String, date: String, year: String) {
-        todoDetailScreen.iClickBtnbyType(type: type)
-        todoDetailScreen.iInputTitle(title: title)
-        todoDetailScreen.iSelectMonth(month: month)
-        todoDetailScreen.iSelectDate(date: date)
-        todoDetailScreen.iSelectYear(year: year)
+    func iInputTodoDetail(todoModel: TodoModel) {
+        todoDetailScreen.iClickBtnbyType(type: todoModel.type.rawValue)
+        todoDetailScreen.iInputTitle(title: todoModel.title)
+        todoDetailScreen.iSelectMonth(month: todoModel.month.rawValue)
+        todoDetailScreen.iSelectDate(date: todoModel.date)
+        todoDetailScreen.iSelectYear(year: todoModel.year)
         todoDetailScreen.iClickDone()
     }
     
-    func iVerifyTodoListScreen(type: String, title: String, expectedDate: String) {
-        todoListScreen.iVerifyLastTodoList(type: type, title: title, expectedDate: expectedDate)
+    func iVerifyTodoListScreen(todoModel: TodoModel) {
+        todoListScreen.iVerifyLastTodoList(type: todoModel.type.rawValue, title: todoModel.title, expectedDate: todoModel.expectedDate)
     }
     
-    func iVerifyTodoDetailScreen(type: String, title: String, month: String, date: String, year: String) {
-        todoDetailScreen.iVerifyType(type: type)
-        todoDetailScreen.iVerifyTitle(title: title)
-        todoDetailScreen.iVerifyMonth(month: month)
-        todoDetailScreen.iVerifyDate(date: date)
-        todoDetailScreen.iVerifyYear(year: year)
+    func iVerifyTodoDetailScreen(todoModel: TodoModel, clickDone: Bool=false) {
+        todoDetailScreen.iVerifyType(type: todoModel.type.rawValue)
+        todoDetailScreen.iVerifyTitle(title: todoModel.title)
+        todoDetailScreen.iVerifyMonth(month: todoModel.month.rawValue)
+        todoDetailScreen.iVerifyDate(date: todoModel.date)
+        todoDetailScreen.iVerifyYear(year: todoModel.year)
+        if clickDone {
+            todoDetailScreen.iClickDone()
+        }
     }
     
 }

@@ -8,7 +8,7 @@
 
 import XCTest
 
-class TodoDetailScreen: XCTestCase {
+class TodoDetailScreen: CommonFunction {
     
     private lazy var app = XCUIApplication()
     private lazy var tfTitle = app.textFields["tfTodoTitle3"]
@@ -26,8 +26,9 @@ class TodoDetailScreen: XCTestCase {
     
     func iInputTitle(title: String) {
         XCTContext.runActivity(named: "input title: \(title)") { _ in
-            tfTitle.tap()
-            tfTitle.typeText(title)
+//            tfTitle.tap()
+//            tfTitle.typeText(title)
+            tfTitle.clearAndEnterText(title)
         }
     }
     
@@ -64,26 +65,26 @@ class TodoDetailScreen: XCTestCase {
     
     func iVerifyTitle(title: String) {
         XCTContext.runActivity(named: "verify titile is: \(title)") { _ in
-            XCTAssertEqual(tfTitle.value as! String, title)
+            
+            XCTAssertEqual(unwrapped(tfTitle.value as? String, with: ""), title)
         }
     }
     
     func iVerifyMonth(month: String) {
         XCTContext.runActivity(named: "verify month is: \(month)") { _ in
-            XCTAssertEqual(pkrMonth.value as! String, month)
+            XCTAssertEqual(unwrapped(pkrMonth.value as? String, with: ""), month)
         }
     }
     
     func iVerifyDate(date: String) {
         XCTContext.runActivity(named: "verify date is: \(date)") { _ in
-            XCTAssertEqual(pkrDate.value as! String, date)
+            XCTAssertEqual(unwrapped(pkrDate.value as? String, with: ""), date)
         }
     }
     
     func iVerifyYear(year: String) {
         XCTContext.runActivity(named: "verify year is: \(year)") { _ in
-            XCTAssertEqual(pkrYear.value as! String, year)
+            XCTAssertEqual(unwrapped(pkrYear.value as? String, with: ""), year)
         }
     }
-
 }

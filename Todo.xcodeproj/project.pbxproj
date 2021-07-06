@@ -21,6 +21,9 @@
 		38D5147026930B640040EC61 /* TodoDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D5146F26930B640040EC61 /* TodoDetailScreen.swift */; };
 		38D5147326930B8D0040EC61 /* AddUpdateTodoFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D5147226930B8D0040EC61 /* AddUpdateTodoFeature.swift */; };
 		38D514762693F39B0040EC61 /* CommonFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D514752693F39B0040EC61 /* CommonFunction.swift */; };
+		38D514792693F95D0040EC61 /* UITestEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D514782693F95D0040EC61 /* UITestEnum.swift */; };
+		38D5147B2693FF5E0040EC61 /* TodoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D5147A2693FF5E0040EC61 /* TodoModel.swift */; };
+		38D5147D26942BDD0040EC61 /* DeleteTodoFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D5147C26942BDD0040EC61 /* DeleteTodoFeature.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +55,9 @@
 		38D5146F26930B640040EC61 /* TodoDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDetailScreen.swift; sourceTree = "<group>"; };
 		38D5147226930B8D0040EC61 /* AddUpdateTodoFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUpdateTodoFeature.swift; sourceTree = "<group>"; };
 		38D514752693F39B0040EC61 /* CommonFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonFunction.swift; sourceTree = "<group>"; };
+		38D514782693F95D0040EC61 /* UITestEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestEnum.swift; sourceTree = "<group>"; };
+		38D5147A2693FF5E0040EC61 /* TodoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoModel.swift; sourceTree = "<group>"; };
+		38D5147C26942BDD0040EC61 /* DeleteTodoFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteTodoFeature.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +135,7 @@
 		38D5146A26930B060040EC61 /* Keyword */ = {
 			isa = PBXGroup;
 			children = (
+				38D514772693F9440040EC61 /* config */,
 				38D5146C26930B1D0040EC61 /* Feature */,
 				38D5146B26930B160040EC61 /* Screen */,
 			);
@@ -148,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				38D5147226930B8D0040EC61 /* AddUpdateTodoFeature.swift */,
+				38D5147C26942BDD0040EC61 /* DeleteTodoFeature.swift */,
 			);
 			path = Feature;
 			sourceTree = "<group>";
@@ -158,6 +166,15 @@
 				38D514752693F39B0040EC61 /* CommonFunction.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		38D514772693F9440040EC61 /* config */ = {
+			isa = PBXGroup;
+			children = (
+				38D514782693F95D0040EC61 /* UITestEnum.swift */,
+				38D5147A2693FF5E0040EC61 /* TodoModel.swift */,
+			);
+			path = config;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,7 +293,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38D5147D26942BDD0040EC61 /* DeleteTodoFeature.swift in Sources */,
 				38D5147326930B8D0040EC61 /* AddUpdateTodoFeature.swift in Sources */,
+				38D5147B2693FF5E0040EC61 /* TodoModel.swift in Sources */,
+				38D514792693F95D0040EC61 /* UITestEnum.swift in Sources */,
 				38D5146E26930B510040EC61 /* TodoListScreen.swift in Sources */,
 				38D514692692F0080040EC61 /* TodoTestSuite.swift in Sources */,
 				38D5147026930B640040EC61 /* TodoDetailScreen.swift in Sources */,
